@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Wheel } from "react-custom-roulette";
+import { motion } from "framer-motion";
 
 const App = () => {
   const [mustSpin, setMustSpin] = useState(false);
   const [prizeNumber, setPrizeNumber] = useState(0);
+  const [showModal, setShowModal] = useState(false); // État pour afficher la modal
 
   const data = [
     { option: "1", style: { backgroundColor: "#1D1B4B", textColor: "#fff" } },
@@ -22,15 +24,23 @@ const App = () => {
     }
   };
 
+  const handleStopSpinning = () => {
+    setMustSpin(false);
+    setShowModal(true); // Affiche la modal après le spin
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-      <h1 className="mb-5 text-2xl font-bold text-gray-800">Web Explorer</h1>
+    <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-br from-indigo-500 via-purple-300 to-white">
       <Wheel
         mustStartSpinning={mustSpin}
         prizeNumber={prizeNumber}
         data={data}
         spinDuration={0.15}
-        onStopSpinning={() => setMustSpin(false)}
+        onStopSpinning={handleStopSpinning}
         outerBorderWidth={5}
         radiusLineWidth={2}
         fontSize={24}
@@ -41,6 +51,34 @@ const App = () => {
       >
         Tourner la roue
       </button>
+
+      {showModal && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <motion.div
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -50 }}
+            className="bg-white rounded-lg shadow-lg px-12 py-8  text-center"
+          >
+            <h2 className="text-3xl font-bold text-indigo-600 mb-6">
+              Félicitations !
+            </h2>
+            <p className="my-4 text-lg">
+              Vous avez tiré le chiffre{" "}
+              <span className="font-semibold text-indigo-500">
+                {data[prizeNumber].option}
+              </span>
+              .
+            </p>
+            <button
+              onClick={closeModal}
+              className="mt-12 px-4 py-2 text-white bg-indigo-500 rounded hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition duration-300"
+            >
+              Fermer
+            </button>
+          </motion.div>
+        </div>
+      )}
     </div>
   );
 };
