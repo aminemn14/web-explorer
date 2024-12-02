@@ -33,7 +33,7 @@ const App = () => {
         onStopSpinning={() => setMustSpin(false)}
         outerBorderWidth={5}
         radiusLineWidth={2}
-        fontSize={18}
+        fontSize={24}
       />
       <button
         onClick={handleSpinClick}
