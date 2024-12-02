@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const App = () => {
   const [mustSpin, setMustSpin] = useState(false);
   const [prizeNumber, setPrizeNumber] = useState(0);
-  const [showModal, setShowModal] = useState(false); // État pour afficher la modal
+  const [showModal, setShowModal] = useState(false);
 
   const data = [
     { option: "1", style: { backgroundColor: "#1D1B4B", textColor: "#fff" } },
@@ -26,7 +26,7 @@ const App = () => {
 
   const handleStopSpinning = () => {
     setMustSpin(false);
-    setShowModal(true); // Affiche la modal après le spin
+    setShowModal(true);
   };
 
   const closeModal = () => {
@@ -34,7 +34,7 @@ const App = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-br from-indigo-500 via-purple-300 to-white">
+    <div className="flex flex-col items-center justify-center min-h-screen">
       <Wheel
         mustStartSpinning={mustSpin}
         prizeNumber={prizeNumber}
@@ -58,21 +58,19 @@ const App = () => {
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -50 }}
-            className="bg-white rounded-lg shadow-lg px-12 py-8  text-center"
+            className="bg-white rounded-lg shadow-lg px-12 py-8 text-center"
           >
-            <h2 className="text-3xl font-bold text-indigo-600 mb-6">
-              Félicitations !
-            </h2>
-            <p className="my-4 text-lg">
-              Vous avez tiré le chiffre{" "}
-              <span className="font-semibold text-indigo-500">
+            <h2 className="text-3xl font-bold text-gray-800">
+              Vous avez tiré le chiffre <br />
+              <br />
+              <span className="text-5xl font-semibold text-indigo-500">
                 {data[prizeNumber].option}
               </span>
-              .
-            </p>
+            </h2>
+
             <button
               onClick={closeModal}
-              className="mt-12 px-4 py-2 text-white bg-indigo-500 rounded hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition duration-300"
+              className="mt-12 px-4 py-2 text-white text-xl bg-indigo-500 rounded hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition duration-300"
             >
               Fermer
             </button>
