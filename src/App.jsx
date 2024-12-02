@@ -49,19 +49,19 @@ const App = () => {
         onClick={handleSpinClick}
         className="mt-5 px-4 py-2 text-lg font-medium text-white bg-indigo-500 rounded hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition duration-300"
       >
-        Tourner la roue
+        Spin the wheel
       </button>
 
       {showModal && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 px-12">
           <motion.div
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -50 }}
-            className="bg-white rounded-lg shadow-lg px-12 py-8 text-center"
+            className="bg-white rounded-lg shadow-lg px-8 md:px-12 py-8 text-center"
           >
-            <h2 className="text-3xl font-bold text-gray-800">
-              Vous avez tiré le chiffre <br />
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
+              You have drawn the number <br />
               <br />
               <span className="text-5xl font-semibold text-indigo-500">
                 {data[prizeNumber].option}
@@ -72,7 +72,7 @@ const App = () => {
               onClick={closeModal}
               className="mt-12 px-4 py-2 text-white text-xl bg-indigo-500 rounded hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition duration-300"
             >
-              Fermer
+              Close
             </button>
           </motion.div>
         </div>
