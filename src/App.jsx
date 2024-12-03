@@ -8,12 +8,31 @@ const App = () => {
   const [showModal, setShowModal] = useState(false);
 
   const data = [
-    { option: "1", style: { backgroundColor: "#1D1B4B", textColor: "#fff" } },
-    { option: "2", style: { backgroundColor: "#302E81", textColor: "#fff" } },
-    { option: "3", style: { backgroundColor: "#3730A3", textColor: "#fff" } },
-    { option: "4", style: { backgroundColor: "#4338CA", textColor: "#fff" } },
-    { option: "5", style: { backgroundColor: "#5046E5", textColor: "#fff" } },
-    { option: "6", style: { backgroundColor: "#6466F1", textColor: "#fff" } },
+    {
+      option: "?",
+      powerUp: "Return to 0",
+      style: { backgroundColor: "#1D1B4B", textColor: "#fff" },
+    },
+    {
+      option: "?",
+      powerUp: "Pass your turn",
+      style: { backgroundColor: "#302E81", textColor: "#fff" },
+    },
+    {
+      option: "?",
+      powerUp: "+5 squares",
+      style: { backgroundColor: "#3730A3", textColor: "#fff" },
+    },
+    {
+      option: "?",
+      powerUp: "-5 squares",
+      style: { backgroundColor: "#4338CA", textColor: "#fff" },
+    },
+    {
+      option: "?",
+      powerUp: "-5 for the opponent of your choice",
+      style: { backgroundColor: "#5046E5", textColor: "#fff" },
+    },
   ];
 
   const handleSpinClick = () => {
@@ -60,11 +79,12 @@ const App = () => {
             exit={{ opacity: 0, y: -50 }}
             className="bg-white rounded-lg shadow-lg px-8 md:px-12 py-8 text-center"
           >
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
-              You have drawn the number <br />
+            <h2 className="text-xl md:text-3xl font-bold text-gray-800">
+              You have drawn the power-up:
               <br />
-              <span className="text-5xl font-semibold text-indigo-500">
-                {data[prizeNumber].option}
+              <br />
+              <span className="text-xl font-semibold text-indigo-500">
+                {data[prizeNumber].powerUp}
               </span>
             </h2>
 
