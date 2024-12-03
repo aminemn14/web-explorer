@@ -20,17 +20,17 @@ const App = () => {
     },
     {
       option: "?",
-      powerUp: "+5 squares",
+      powerUp: "+3 squares",
       style: { backgroundColor: "#3730A3", textColor: "#fff" },
     },
     {
       option: "?",
-      powerUp: "-5 squares",
+      powerUp: "-3 squares",
       style: { backgroundColor: "#4338CA", textColor: "#fff" },
     },
     {
       option: "?",
-      powerUp: "-5 for the opponent of your choice",
+      powerUp: "-3 for the opponent of your choice",
       style: { backgroundColor: "#5046E5", textColor: "#fff" },
     },
   ];
