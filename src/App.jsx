@@ -23,6 +23,7 @@ const App = () => {
       powerUp: "+3 squares",
       style: { backgroundColor: "#3730A3", textColor: "#fff" },
     },
+
     {
       option: "?",
       powerUp: "-3 squares",
@@ -32,6 +33,11 @@ const App = () => {
       option: "?",
       powerUp: "-3 for the opponent of your choice",
       style: { backgroundColor: "#5046E5", textColor: "#fff" },
+    },
+    {
+      option: "?",
+      powerUp: "+5 squares",
+      style: { backgroundColor: "#594EFF", textColor: "#fff" },
     },
   ];
 
