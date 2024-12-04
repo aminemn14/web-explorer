@@ -10,7 +10,7 @@ const App = () => {
   const data = [
     {
       option: "?",
-      powerUp: "Return to 0",
+      powerUp: "Return to checkpoint",
       style: { backgroundColor: "#1D1B4B", textColor: "#fff" },
     },
     {
