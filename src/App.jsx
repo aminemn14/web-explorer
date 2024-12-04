@@ -15,7 +15,7 @@ const App = () => {
     },
     {
       option: "?",
-      powerUp: "Pass your turn",
+      powerUp: "Cancel your turn",
       style: { backgroundColor: "#302E81", textColor: "#fff" },
     },
     {
